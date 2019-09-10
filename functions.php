@@ -56,6 +56,7 @@ if (!function_exists('uptime_child_enqueue_styles')) {
             array('uptime-style'),
             wp_get_theme()->get('Version')
         );
+        wp_enqueue_style('style-spg', get_template_directory_uri() . '/css/style-spg.css');
 
         wp_add_inline_style('uptime-child-style', tommusrhodus_generate_skin_uptime_child());
 
