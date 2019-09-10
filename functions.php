@@ -95,6 +95,7 @@ if (!function_exists('uptime_child_get_custom_logo')) {
         </a>';
 
         return str_replace('{{custom_logo}}', $custom_logo, $html);
+        return str_replace('{{home_url}}', get_home_url(), $html);
     }
 
     add_action('get_custom_logo', 'uptime_child_get_custom_logo');
