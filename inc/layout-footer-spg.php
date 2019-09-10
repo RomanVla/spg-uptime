@@ -12,7 +12,9 @@
             }
             if (is_active_sidebar('default_footer_2') && !(is_active_sidebar('default_footer_3'))) {
                 echo '<div class="col-md-6 col-lg-6 col-sm-6 col-12 py-2">';
-                    echo get_custom_logo();
+                    echo '<div class="widget">';
+                        echo get_custom_logo('');
+                    echo '</div>';
                     dynamic_sidebar('default_footer_1');
                 echo '</div><div class="col-md-6 col-lg-6 col-sm-6 col-12 py-2">';
                     dynamic_sidebar('default_footer_2');

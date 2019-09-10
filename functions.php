@@ -76,21 +76,21 @@ if (!function_exists('uptime_child_get_custom_logo')) {
 
         if( mime_content_type($site_logo) == 'image/svg+xml' ) {
             $custom_logo = '
-            <span class="home-logo">
+            <span class="site-logo">
               {{home_logo_src}}
             </span>            
             ';
 
             $custom_logo = str_replace('{{home_logo_src}}', file_get_contents($site_logo), $custom_logo);
         } else {
-            $custom_logo = '<img class="d-inline-block align-top home-logo" src="{{home_logo_src}}" alt="Softwareplanetgroup">';
+            $custom_logo = '<img class="d-inline-block align-top site-logo" src="{{home_logo_src}}" alt="Softwareplanetgroup">';
 
             $custom_logo = str_replace('{{home_logo_src}}', wp_get_attachment_url($custom_logo_id), $custom_logo);
         }
 
 
         $html =  '
-        <a id="home-logo" class="navbar-brand" href="{{home_url}}">            
+        <a class="navbar-brand" href="{{home_url}}">            
               {{custom_logo}}                        
         </a>';
 
