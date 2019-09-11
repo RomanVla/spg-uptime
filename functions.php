@@ -100,7 +100,7 @@ if (!function_exists('uptime_child_get_custom_logo')) {
               {{custom_logo}}                        
         </a>';
 
-        return str_replace('{{custom_logo}}', $custom_logo, $html);
+        $html = str_replace('{{custom_logo}}', $custom_logo, $html);
         return str_replace('{{home_url}}', get_home_url(), $html);
     }
 
