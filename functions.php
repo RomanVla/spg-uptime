@@ -31,7 +31,8 @@ if (!function_exists('uptime_child_enqueue_styles')) {
         $link_text = get_theme_mod('link_text', '#3755BE');
 
         $skin = '
-            a {
+        
+            a:not(.card):not(.btn-primary):not(.nav-link):not(.text-white):not(.dropdown-item):not(.btn-outline-primary):not(.btn):not(.elementor-button) {
                 color: ' .$link_text. '
             }
         
