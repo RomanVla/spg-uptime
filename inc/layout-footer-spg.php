@@ -52,11 +52,11 @@
 
     </div>
 
-    <div class="d-flex justify-content-center navbar-dark py-2">
+    <div class="d-flex justify-content-center navbar-dark py-2 footer-strip">
 
         <?= do_shortcode('[uptime_stars number_of_stars="4.5"]') ?>
         <div class="d-flex mr-2">
-            Rated 4.9/5.0 by 25 clients for web dewelopment? mobile development and design services.
+            Rated 4.9/5.0 by 25 clients for web development, mobile development and design services.
         </div>
         <div class="d-flex mr-2">
             <a class="text-small hover-arrow px-1" href="/privacy-policy/">Terms of service</a>

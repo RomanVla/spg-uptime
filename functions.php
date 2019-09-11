@@ -21,6 +21,8 @@ if (!function_exists('uptime_child_enqueue_styles')) {
     function tommusrhodus_generate_skin_uptime_child()
     {
 
+        $bg_dark = get_theme_mod('bg_dark', '#212529');
+
         $logo_height = str_replace('px', '', get_theme_mod('logo_height', '26px')) . 'px';
         $logo_width = str_replace('px', '', get_theme_mod('logo_width', 'auto'));
         if ($logo_width != 'auto') {
@@ -42,7 +44,10 @@ if (!function_exists('uptime_child_enqueue_styles')) {
 				max-height: ' . $logo_height . ';
 				width: ' . $logo_width . ';
 			}    
-			    
+            
+            .footer-strip {
+                background: '. $bg_dark . ' !important;
+            }			    
     ';
 
         return $skin;
