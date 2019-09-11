@@ -52,17 +52,19 @@
 
     </div>
 
-    <div class="d-flex justify-content-center navbar-dark py-2 footer-strip">
+    <div class="d-flex justify-content-center align-items-center navbar-dark py-2 footer-strip">
 
         <?= do_shortcode('[uptime_stars number_of_stars="4.5"]') ?>
         <div class="d-flex mr-2">
             Rated 4.9/5.0 by 25 clients for web development, mobile development and design services.
         </div>
         <div class="d-flex mr-2">
-            <a class="text-small hover-arrow px-1" href="/privacy-policy/">Terms of service</a>
-            <a class="text-small hover-arrow" href="/privacy-policy/">Privacy Policy </a>
+            <a class="text-small hover-arrow px-2" href="/privacy-policy/"> <small>Terms of service</small> </a>
+            <a class="text-small hover-arrow px-2" href="/privacy-policy/"> <small>Privacy Policy</small> </a>
         </div>
-
+        <div class="d-flex mr-2">
+            <a href="//www.dmca.com/Protection/Status.aspx?ID=432ef90d-6d95-4c7b-88d7-943b3c94c58a" title="DMCA.com Protection Status" class="dmca-badge"> <img src ="https://images.dmca.com/Badges/dmca_protected_6_120.png?ID=432ef90d-6d95-4c7b-88d7-943b3c94c58a"  alt="DMCA.com Protection Status" /></a>  <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
+        </div>
     </div>
 
 </footer>
