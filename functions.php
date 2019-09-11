@@ -32,7 +32,7 @@ if (!function_exists('uptime_child_enqueue_styles')) {
 
         $skin = '
         
-            a:not(.card):not(.btn-primary):not(.nav-link):not(.text-white):not(.dropdown-item):not(.btn-outline-primary):not(.btn):not(.elementor-button) {
+            a {
                 color: ' .$link_text. '
             }
         
