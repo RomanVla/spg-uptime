@@ -1,4 +1,5 @@
 <?php
+$title    = get_theme_mod( 'post_archive_title', 'Blog' );
 $categories = get_the_category();
 ?>
 
@@ -16,6 +17,9 @@ $categories = get_the_category();
                 echo '<p>'. get_the_excerpt() .'</p>';
             } ?>
         </div>
+
+        <div> <? the_title( '<h5>', '</h5>' ); ?>  </div>
+
     </div>
     <?php if( has_post_thumbnail() ) : ?>
         <?php the_post_thumbnail( 'large', array( 'class' => 'rounded bg-image' ) ); ?>
