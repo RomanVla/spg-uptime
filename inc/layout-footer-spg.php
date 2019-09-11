@@ -1,4 +1,4 @@
-<footer class="pb-4 bg-primary-3 text-light" id="footer">
+<footer class="pb-0 bg-primary-3 text-light" id="footer">
     <div class="container">
 
         <?php get_template_part('inc/content', 'footer-cta'); ?>
@@ -51,4 +51,18 @@
         </div>
 
     </div>
+
+    <div class="d-flex justify-content-center navbar-dark py-2">
+
+        <?= do_shortcode('[uptime_stars number_of_stars="4.5"]') ?>
+        <div class="d-flex mr-2">
+            Rated 4.9/5.0 by 25 clients for web dewelopment? mobile development and design services.
+        </div>
+        <div class="d-flex mr-2">
+            <a class="text-small hover-arrow px-1" href="/privacy-policy/">Terms of service</a>
+            <a class="text-small hover-arrow" href="/privacy-policy/">Privacy Policy </a>
+        </div>
+
+    </div>
+
 </footer>
