@@ -1,4 +1,4 @@
-<footer class="pb-0 bg-primary-3 text-light" id="footer">
+<footer class="pb-1 bg-primary-3 text-light" id="footer">
     <div class="container">
 
         <?php get_template_part('inc/content', 'footer-cta'); ?>
