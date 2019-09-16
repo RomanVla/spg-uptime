@@ -66,6 +66,9 @@ if (!function_exists('uptime_child_enqueue_styles')) {
 
         wp_add_inline_style('uptime-child-style', tommusrhodus_generate_skin_uptime_child());
 
+        wp_register_script('scripts-spg', get_stylesheet_directory_uri() . '/js/scripts.js');
+        wp_enqueue_script('scripts-spg' );
+
     }
 
     add_action('wp_enqueue_scripts', 'uptime_child_enqueue_styles', 111);
@@ -174,12 +177,20 @@ if (!function_exists('uptime_child_widget_nav_menu_args')) {
     add_filter( 'widget_nav_menu_args', 'uptime_child_widget_nav_menu_args' );
 }
 
-if (!function_exists('uptime_tommusrhodus_add_footer_layouts')) {
-    function uptime_tommusrhodus_add_footer_layouts($options) {
+if (!function_exists('uptime_child_add_footer_layouts')) {
+    function uptime_child_add_footer_layouts($options) {
 
         $options['spg'] = 'Default SPG';
 
         return $options;
     }
-    add_filter( 'tommusrhodus_add_footer_layouts', 'uptime_tommusrhodus_add_footer_layouts' );
+    add_filter( 'tommusrhodus_add_footer_layouts', 'uptime_child_add_footer_layouts' );
+}
+
+if (!function_exists('uptime_child_init_elementor_blocks')) {
+    function uptime_child_init_elementor_blocks() {
+
+        require_once(__DIR__ . '/blocks/Widget_SPG_Contact_Us_Form_Block.php');
+    }
+    add_action('elementor/widgets/widgets_registered', 'uptime_child_init_elementor_blocks', 26);
 }
