@@ -194,3 +194,85 @@ if (!function_exists('uptime_child_init_elementor_blocks')) {
     }
     add_action('elementor/widgets/widgets_registered', 'uptime_child_init_elementor_blocks', 26);
 }
+
+add_action( 'customize_register', 'my_theme_customize_register' );
+
+function my_theme_customize_register( WP_Customize_Manager $wp_customize ) {
+
+    $setting_id = 'mail_receiver';
+
+    $wp_customize->add_setting(
+        $setting_id,
+        array(
+            'default' => '',
+            'type' => 'option', // you can also use 'theme_mod'
+            'capability' => 'edit_theme_options'
+        )
+    );
+
+    $wp_customize->add_control( new WP_Customize_Control(
+        $wp_customize,
+        $setting_id,
+        array(
+            'label'      => __( 'Mail receiver', 'textdomain' ),
+            'description' => __( 'Set email to receive messages', 'textdomain' ),
+            'settings'   => $setting_id,
+            'priority'   => 10,
+            'section'    => 'title_tagline',
+            'type'       => 'text',
+        )
+    ) );
+}
+
+add_action( 'wp_ajax_send_mail', 'wpd_ajax_send_mail' );
+add_action( 'wp_ajax_nopriv_send_mail', 'wpd_ajax_send_mail' );
+function wpd_ajax_send_mail() {
+
+    $body = json_decode(file_get_contents( 'php://input' ), true);
+
+    $mailType = $body['mailType'];
+    $form_data = $body['form_data'];
+
+    $headers     = array(
+        'MIME-Version: 1.0',
+        'Content-Type: text/html; charset=iso-8859-1',
+        'From: SPG Website <request@softwareplanetgroup.com>',
+    );
+    $htmlContent = '';
+
+    if ( $mailType == 'contact_form_message' ) {
+        fill_contact_form_message_mail( $form_data, $htmlContent );
+    }
+
+    $result = false;
+    try {
+        $result = wp_mail( get_option( 'mail_receiver' ),
+            'New Message Enquiry from SPG Website - ' . date( "h:i d-M-Y" ),
+            $htmlContent,
+            implode( "\r\n", $headers ) );
+
+    } catch ( Exception $e ) {
+        echo json_encode( array( 'result' => false, 'error' => $e->getMessage() ) );
+        echo 'Caught exception: ', $e->getMessage(), "\n";
+    }
+
+    echo json_encode( array( 'result' => $result ) );
+    wp_die();
+}
+
+function fill_contact_form_message_mail($form_data, &$htmlContent ) {
+
+    $mailTemplateFile = __DIR__ . "/mailTemplate.html";
+    if ( file_exists( $mailTemplateFile ) ) {
+        $htmlContent = file_get_contents( $mailTemplateFile );
+        $htmlContent = str_replace( "{{template_directory_uri}}", get_stylesheet_directory_uri(), $htmlContent );
+        $htmlContent = str_replace( "{{site_url}}", get_site_url(), $htmlContent );
+        $htmlContent = str_replace( "{{contactInformation}}", '', $htmlContent );
+
+        $htmlContent = str_replace( '{{contact_form_name}}', $form_data['name'], $htmlContent );
+        $htmlContent = str_replace( '{{contact_form_email}}', $form_data['email'], $htmlContent );
+        $htmlContent = str_replace( '{{contact_form_message}}', str_replace("\n\r", '<br><br>', $form_data['message']), $htmlContent );
+
+    }
+
+}
