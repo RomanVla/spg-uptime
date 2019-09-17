@@ -110,55 +110,6 @@ if (!function_exists('uptime_child_get_custom_logo')) {
     add_action('get_custom_logo', 'uptime_child_get_custom_logo');
 }
 
-if (!function_exists('uptime_child_get_framework_theme_args')) {
-    function uptime_child_get_framework_theme_args($framework_args)
-    {
-        array_push ($framework_args['theme_options'][2]['sections'][0]['options'],
-            array(
-            'id'        => 'logo_width',
-            'title'     => esc_html__( 'Logo Width (default auto)', 'uptime' ),
-            'default'   => 'auto',
-            'type'      => 'text',
-            'transport' => 'postMessage',
-            'choices'   => ''
-            )
-        );
-
-        array_push ($framework_args['theme_options'][1]['sections'][0]['options'],
-            array(
-                'id'        => 'link_text',
-                'title'     => esc_html__( 'Link Text Color', 'uptime' ),
-                'default'   => '#3755BE',
-                'type'      => 'color',
-                'transport' => 'postMessage'
-            )
-        );
-
-        array_push ($framework_args['theme_options'][14]['sections'][0]['options'],
-            array(
-                'id'        => 'footer_budges',
-                'title'     => esc_html__( 'Footer budges', 'uptime' ),
-                'default'   => '',
-                'type'      => 'textarea',
-                'transport' => 'postMessage',
-                'choices'   => ''
-            ),
-            array(
-                'id'        => 'footer_buttons',
-                'title'     => esc_html__( 'Footer buttons', 'uptime' ),
-                'default'   => '',
-                'type'      => 'textarea',
-                'transport' => 'postMessage',
-                'choices'   => ''
-            )
-        );
-
-        return $framework_args;
-    }
-
-    add_action('tommusrhodus_framework_theme_args', 'uptime_child_get_framework_theme_args');
-}
-
 function wp_upload_mimes($mimes) {
     $mimes['svg'] = 'image/svg+xml';
     return $mimes;
@@ -195,33 +146,120 @@ if (!function_exists('uptime_child_init_elementor_blocks')) {
     add_action('elementor/widgets/widgets_registered', 'uptime_child_init_elementor_blocks', 26);
 }
 
-add_action( 'customize_register', 'my_theme_customize_register' );
+if (!function_exists('uptime_child_customize_register')) {
 
-function my_theme_customize_register( WP_Customize_Manager $wp_customize ) {
+    $option_priority  = 300;
 
-    $setting_id = 'mail_receiver';
+    function theme_option_add_controll($wp_customize, $theme_option_var = array()) {
+        global $option_priority;
 
-    $wp_customize->add_setting(
-        $setting_id,
-        array(
-            'default' => '',
-            'type' => 'option', // you can also use 'theme_mod'
-            'capability' => 'edit_theme_options'
-        )
-    );
+        $theme_option = array_merge(
+            array(
+                'default'       => '',
+                'type'          => 'text',
 
-    $wp_customize->add_control( new WP_Customize_Control(
-        $wp_customize,
-        $setting_id,
-        array(
-            'label'      => __( 'Mail receiver', 'textdomain' ),
-            'description' => __( 'Set email to receive messages', 'textdomain' ),
-            'settings'   => $setting_id,
-            'priority'   => 10,
-            'section'    => 'title_tagline',
-            'type'       => 'text',
-        )
-    ) );
+                'option_type' => 'theme_mod', // you can also use 'option'
+                'description' => '',
+                'transport'     => 'postMessage'
+            ),
+            $theme_option_var
+        );
+
+        $wp_customize->add_setting(
+            $theme_option['id'],
+            array(
+                'default' => $theme_option['default'],
+                'type' => $theme_option['option_type'],
+                'capability' => 'edit_theme_options'
+            )
+        );
+
+        $wp_customize->add_control( new WP_Customize_Control(
+            $wp_customize,
+            $theme_option['id'],
+            array(
+                'label'      => __( $theme_option['title'], 'textdomain' ),
+                'description' => __( $theme_option['description'], 'textdomain' ),
+                'settings'   => $theme_option['id'],
+                'priority'   => $option_priority++,
+                'section'    => $theme_option['section'],
+                'type'       => $theme_option['type'],
+            )
+        ) );
+
+    }
+
+    function uptime_child_customize_register( WP_Customize_Manager $wp_customize ) {
+
+        theme_option_add_controll(
+            $wp_customize,
+            array(
+                'id'            => 'footer_budges',
+                'section'       => 'footer',
+
+                'title'         => esc_html__( 'Footer budges', 'uptime' ),
+
+                'default'   => '',
+                'type'      => 'textarea',
+            )
+        );
+
+        theme_option_add_controll(
+            $wp_customize,
+            array(
+                'id'            => 'footer_buttons',
+                'section'       => 'footer',
+
+                'title'         => esc_html__( 'Footer buttons', 'uptime' ),
+
+                'default'   => '',
+                'type'      => 'textarea',
+            )
+        );
+
+        theme_option_add_controll(
+            $wp_customize,
+            array(
+                'id'            => 'link_text',
+                'section'       => 'theme_colors',
+
+                'title'         => esc_html__( 'Link Text Color', 'uptime' ),
+
+                'default'   => '#3755BE',
+                'type'      => 'color',
+            )
+        );
+
+        theme_option_add_controll(
+            $wp_customize,
+            array(
+            'id'            => 'mail_receiver',
+            'section'       => 'title_tagline',
+
+            'title'         => esc_html__( 'Mail receiver', 'uptime' ),
+            'description'   => esc_html__( 'Set email to receive messages', 'uptime' ),
+
+            'option_type'   => 'option'
+            )
+        );
+
+        theme_option_add_controll(
+            $wp_customize,
+            array(
+                'id'        => 'logo_width',
+                'section'   => 'header',
+
+                'title'     => esc_html__( 'Logo Width', 'uptime' ),
+                'description'   => esc_html__( 'Set logo width (default auto)', 'uptime' ),
+
+                'type'      => 'text',
+                'default'   => 'auto',
+            )
+        );
+
+    }
+
+    add_action( 'customize_register', 'uptime_child_customize_register', 500 );
 }
 
 add_action( 'wp_ajax_send_mail', 'wpd_ajax_send_mail' );

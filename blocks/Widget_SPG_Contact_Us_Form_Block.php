@@ -70,7 +70,7 @@ class Widget_SPG_Contact_Us_Form_Block extends Widget_Base
             'form_name_placeholder', [
                 'label' => __('Placeholder for name input', 'tr-framework'),
                 'type' => Controls_Manager::TEXT,
-                'default' => 'Your Name',
+                'default' => 'e.g. Miles Bennett Dyson',
                 'label_block' => true
             ]
         );
@@ -98,7 +98,7 @@ class Widget_SPG_Contact_Us_Form_Block extends Widget_Base
             'form_email_placeholder', [
                 'label' => __('Placeholder for email input', 'tr-framework'),
                 'type' => Controls_Manager::TEXT,
-                'default' => 'Email address',
+                'default' => 'mb.dyson@cyberdyne.net',
                 'label_block' => true
             ]
         );
@@ -125,7 +125,7 @@ class Widget_SPG_Contact_Us_Form_Block extends Widget_Base
             'form_message_placeholder', [
                 'label' => __('Placeholder for message textarea', 'tr-framework'),
                 'type' => Controls_Manager::TEXT,
-                'default' => 'Message to us',
+                'default' => 'I need a quote for a Skynet project development/security testing.',
                 'label_block' => true
             ]
         );
@@ -163,26 +163,26 @@ class Widget_SPG_Contact_Us_Form_Block extends Widget_Base
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                     <div class="form-group">
                                         <label> ' . $settings['form_name_label'] . ' </label>
-                                        <input id="name" type="text" name="name" class="form-control" placeholder="e.g. Miles Bennett Dyson" required/>
+                                        <input id="name" type="text" name="name" class="form-control" placeholder="' . $settings['form_name_placeholder'] . '" required/>
                                     </div>
     
                                     <div class="form-group">
                                         <label> ' . $settings['form_email_label'] . '</label>
-                                        <input id="email" class="form-control" type="email" name="email" aria-describedby="emailHelp" placeholder="mb.dyson@cyberdyne.net" required/>
+                                        <input id="email" class="form-control" type="email" name="email" aria-describedby="emailHelp" placeholder="' . $settings['form_email_placeholder'] . '" required/>
+                                        <small class="form-text" style="display: none; color: #dc3545;" id="invalid_email">Email is invalid</small>
+                                        <small class="form-text text-muted" id="email-text"></small>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                     <div class="form-group">
                                         <label> ' . $settings['form_message_label'] . ' </label>
-                                        <textarea id="message" class="form-control" name="message" placeholder="I need a quote for a Skynet project development/security testing." required ></textarea>
+                                        <textarea id="message" class="form-control" name="message" placeholder="' . $settings['form_message_placeholder'] . '" required ></textarea>
                                     </div>
                                 </div>
                             </div>
                             <div class="row justify-content-end p-2">
                                 <div class="px-4">
-                                    <button id="send-message" class="form-control btn btn-outline-primary message-form-btn-send-message">
-                                        Send
-                                        <span class="px-1"> <i class="fab fa-telegram-plane"></i> </span>
+                                    <button id="send-message" class="form-control btn btn-outline-primary message-form-btn-send-message"> Send <span class="px-1"> <i class="fab fa-telegram-plane"></i> </span>
                                     </button>
                                     <div class="invalid-feedback">Error sending message. Try again.</div>
                                     <p class="invalid-feedback" id="empty-field"></p>
