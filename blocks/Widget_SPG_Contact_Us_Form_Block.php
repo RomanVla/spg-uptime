@@ -158,34 +158,31 @@ class Widget_SPG_Contact_Us_Form_Block extends Widget_Base
 
                     <div method="post">
 
-                        <form id="message-form" class="needs-validation">
-                            <div class="row">
+                        <form id="message-form" class="contact-us-form">
+                            <div class="form-row">
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                     <div class="form-group">
                                         <label> ' . $settings['form_name_label'] . ' </label>
-                                        <input id="name" type="text" name="name" class="form-control" placeholder="' . $settings['form_name_placeholder'] . '" required/>
+                                        <input id="name" type="text" name="name" class="form-control" placeholder="' . $settings['form_name_placeholder'] . '" />
                                     </div>
     
                                     <div class="form-group">
                                         <label> ' . $settings['form_email_label'] . '</label>
-                                        <input id="email" class="form-control" type="email" name="email" aria-describedby="emailHelp" placeholder="' . $settings['form_email_placeholder'] . '" required/>
-                                        <small class="form-text" style="display: none; color: #dc3545;" id="invalid_email">Email is invalid</small>
-                                        <small class="form-text text-muted" id="email-text"></small>
+                                        <input id="email" class="form-control" type="email" name="email" aria-describedby="emailHelp" placeholder="' . $settings['form_email_placeholder'] . '"/>                                        
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                     <div class="form-group">
                                         <label> ' . $settings['form_message_label'] . ' </label>
-                                        <textarea id="message" class="form-control" name="message" placeholder="' . $settings['form_message_placeholder'] . '" required ></textarea>
+                                        <textarea id="message" class="form-control" name="message" placeholder="' . $settings['form_message_placeholder'] . '" ></textarea>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row justify-content-end p-2">
+                            <div class="form-row justify-content-end p-2">
                                 <div class="px-4">
-                                    <button id="send-message" class="form-control btn btn-outline-primary message-form-btn-send-message"> Send <span class="px-1"> <i class="fab fa-telegram-plane"></i> </span>
+                                    <button id="send-message" class="btn btn-outline-primary message-form-btn-send-message form-control"> Send <span class="px-1"> <i class="fab fa-telegram-plane"></i> </span>
                                     </button>
                                     <div class="invalid-feedback">Error sending message. Try again.</div>
-                                    <p class="invalid-feedback" id="empty-field"></p>
                                 </div>
                             </div>
                             

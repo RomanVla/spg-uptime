@@ -68,6 +68,8 @@ if (!function_exists('uptime_child_enqueue_styles')) {
 
         wp_register_script('scripts-spg', get_stylesheet_directory_uri() . '/js/scripts.js');
         wp_enqueue_script('scripts-spg' );
+        wp_localize_script( 'scripts-spg', 'wp_var',
+            array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
 
     }
 
