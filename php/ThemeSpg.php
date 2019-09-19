@@ -51,7 +51,7 @@ if (!class_exists('ThemeSpg')) {
                 $logo_html = str_replace('{{home_logo_src}}', wp_get_attachment_url($custom_logo_id), $logo_html);
             }
 
-            return esc_html($logo_html);
+            return $logo_html;
         }
 
         public function theme_customize_add_option($wp_customize, $theme_option_var = array()) {
