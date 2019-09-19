@@ -76,7 +76,7 @@ if (!class_exists('ThemeFunctions')) {
             $html = str_replace('{{custom_logo}}', $this->theme->get_site_logo(), $html);
             $html = str_replace('{{home_url}}', get_home_url(), $html);
 
-            esc_html($html);
+            return esc_html($html);
         }
 
         public function add_theme_customize_option(WP_Customize_Manager $wp_customize) {
