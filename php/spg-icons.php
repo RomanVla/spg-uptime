@@ -1,10 +1,10 @@
 <?php
 
 if (!function_exists('uptime_child_add_svg_icons')) {
-    add_action('tommusrhodus_add_svg_icons', 'uptime_child_add_svg_icons');
+add_action('tommusrhodus_add_svg_icons', 'uptime_child_add_svg_icons');
 
-    function uptime_child_add_svg_icons($icons) {
-        return array_merge($icons, array(
+function uptime_child_add_svg_icons($icons) {
+    return array_merge($icons, array(
             //<!-- inject:svg -->
             'spg_cpp' => '<svg class="icon" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
 <path opacity="0.3" d="M10.7661 11.2391H12.5052V9.5H14.2444V11.2391H15.9835V12.9783H14.2444V14.7174H12.5052V12.9783H10.7661V11.2391ZM16.8531 11.2391H18.5922V9.5H20.3313V11.2391H22.0705V12.9783H20.3313V14.7174H18.5922V12.9783H16.8531V11.2391Z" fill="#000000"/>
@@ -52,6 +52,6 @@ if (!function_exists('uptime_child_add_svg_icons')) {
 </svg>
 ',
             //<!-- endinject -->
-        ));
+    ));
     }
 }

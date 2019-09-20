@@ -29,7 +29,7 @@ if (!class_exists('ThemeFunctions')) {
 
             add_filter( 'widget_nav_menu_args', array( $this, 'change_widget_nav_menu_args' ) );
             add_filter( 'tommusrhodus_add_footer_layouts', array( $this, 'added_custom_footer_layouts') );
-
+            add_filter( 'tommusrhodus_add_client_layouts', array( $this, 'added_custom_client_layouts') );
         }
 
         public function enqueue_theme_frontend() {
@@ -64,6 +64,12 @@ if (!class_exists('ThemeFunctions')) {
 
         public function added_custom_footer_layouts($options) {
             $options['spg'] = 'Default SPG';
+            return $options;
+        }
+
+        public function added_custom_client_layouts($options) {
+            $options['Medium Logos'] = 'medium';
+            $options['Medium Logos, No Margin Bottom'] = 'medium-no-margin';
             return $options;
         }
 
