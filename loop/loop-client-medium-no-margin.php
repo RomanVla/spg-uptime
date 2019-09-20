@@ -5,7 +5,7 @@
 		?>
 			
 			<li class="mx-md-4 mx-3" data-aos="fade-up" data-aos-delay="<?php echo esc_attr( $i ); ?>00">
-				<?php the_post_thumbnail( 'medium', array( 'class' => 'icon icon-md opacity-20' ) ); ?>
+				<?php the_post_thumbnail( 'medium', array( 'class' => 'icon icon-medium opacity-20' ) ); ?>
 			</li>
 			
 		<?php
