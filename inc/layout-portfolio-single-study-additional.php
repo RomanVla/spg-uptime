@@ -4,7 +4,7 @@
     $website_url 	= get_post_meta( $post->ID, '_tommusrhodus_porfolio_item_website_url', true );
 ?>
 
-<section class="bg-primary-3 has-divider text-light">
+<section class="bg-primary-alt has-divider">
 
 	<div class="container pb-md-0">
 	
@@ -44,12 +44,12 @@
                             echo wp_kses_post( $website_label );
                             echo '</div>';
                         }
-                        $category_detail = get_the_category( $post->ID );
-                        if ( count($category_detail) > 0 ) {
+                        $terms = get_the_terms( $post->ID , 'portfolio_category');
+                        if ( count($terms) > 0 ) {
                             echo '<div class="mb-3">';
                             echo '<h6 class="mb-1">Industry</h6>';
-                            foreach($category_detail as $cd){
-                                echo $cd->cat_name . '; ';
+                            foreach($terms as $term){
+                                echo $term->name . '; ';
                             }
                             echo '</div>';
                         }
