@@ -29,7 +29,8 @@
 			</div>
 		</div>
 		
-			<div class="row justify-content-center mb-lg-n7">
+			<div class="row my-6 justify-content-between">
+
                 <div class="col-lg-7 col-xl-8 mb-3 mb-lg-0">
 					<?php the_post_thumbnail( 'large', array( 'class' => 'rounded' ) ); ?>
 				</div>
@@ -39,11 +40,22 @@
                     echo '<div class="col-lg-4 col-xl-3">';
                         if( isset ( $website_label ) ) {
                             echo '<div class="mb-3">';
+                            echo '<h6 class="mb-1">Description</h6>';
                             echo wp_kses_post( $website_label );
+                            echo '</div>';
+                        }
+                        $category_detail = get_the_category( $post->ID );
+                        if ( count($category_detail) > 0 ) {
+                            echo '<div class="mb-3">';
+                            echo '<h6 class="mb-1">Industry</h6>';
+                            foreach($category_detail as $cd){
+                                echo $cd->cat_name . '; ';
+                            }
                             echo '</div>';
                         }
                         if( isset ( $website_url ) ) {
                             echo '<div class="mb-3">';
+                            echo '<h6 class="mb-1">Website</h6>';
                             $remove = array( 'http://', 'https://', 'mailto:');
                             echo '<a href="'. esc_url( $website_url ) .'">'. wp_kses_post( str_replace( $remove,'', $website_url ) ) .'</a>';
                             echo '</div>';
