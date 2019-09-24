@@ -180,7 +180,7 @@ class Widget_SPG_Contact_Us_Form_Block extends Widget_Base
                             </div>
                             <div class="form-row justify-content-end p-2">
                                 <div class="px-4">
-                                    <button id="send-message" class="btn btn-outline-primary message-form-btn-send-message form-control"> Send <span class="px-1"> <i class="fab fa-telegram-plane"></i> </span>
+                                    <button id="send-message" class="btn btn-primary message-form-btn-send-message form-control"> Send <span class="px-1"> ' .do_shortcode('[uptime_icon icon_name="Send"]').  '</span>
                                     </button>
                                     <div class="invalid-feedback">Error sending message. Try again.</div>
                                 </div>
