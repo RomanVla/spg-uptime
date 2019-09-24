@@ -152,9 +152,7 @@ class Widget_SPG_Contact_Us_Form_Block extends Widget_Base
                 <div class="card contacts-form">
                     <div class="card-body">
         
-                        <div class="is-size-4 pb-4"> ' . $settings['form_title'] . ' </div>
-        
-                        <div class="pb-4">
+                        <div class="is-size-4 pb-4"> ' . $settings['form_title'] . ' </div>        
         
                             <div method="post">
         
@@ -191,12 +189,10 @@ class Widget_SPG_Contact_Us_Form_Block extends Widget_Base
                             </div>
         
                         </div>
-        
-                    </div>
                     
+                    </div>
                 </div>
             </div>
-        </div>        
 	         ';
 
         if (!$user_selected_animation) {
