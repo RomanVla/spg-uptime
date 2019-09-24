@@ -160,7 +160,7 @@ class Widget_SPG_Contact_Us_Form_Block extends Widget_Base
         
                                 <form id="message-form" class="contact-us-form">
                                     <div class="form-row">
-                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                             <div class="form-group">
                                                 <label> ' . $settings['form_name_label'] . ' </label>
                                                 <input id="name" type="text" name="name" class="form-control" placeholder="' . $settings['form_name_placeholder'] . '" />
@@ -168,14 +168,14 @@ class Widget_SPG_Contact_Us_Form_Block extends Widget_Base
             
                                             <div class="form-group">
                                                 <label> ' . $settings['form_email_label'] . '</label>
-                                                <input id="email" class="form-control" type="email" name="email" aria-describedby="emailHelp" placeholder="' . $settings['form_email_placeholder'] . '"/>                                        
+                                                <input id="email" class="form-control" type="email" name="email" aria-describedby="emailHelp" placeholder="' . $settings['form_email_placeholder'] . '"/>           
                                             </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                            
                                             <div class="form-group">
                                                 <label> ' . $settings['form_message_label'] . ' </label>
-                                                <textarea id="message" class="form-control" name="message" placeholder="' . $settings['form_message_placeholder'] . '" ></textarea>
+                                                <textarea id="message" class="form-control" name="message" placeholder="' . $settings['form_message_placeholder'] . '" rows="5" cols="33"></textarea>
                                             </div>
+                                                                                        
                                         </div>
                                     </div>
                                     <div class="form-row justify-content-end p-2">
