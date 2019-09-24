@@ -148,51 +148,53 @@ class Widget_SPG_Contact_Us_Form_Block extends Widget_Base
 
         echo '
         <div class="row">
-        <div class="col-12">
-        <div class="card contacts-form">
-            <div class="card-body">
-
-                <div class="is-size-4 pb-4"> ' . $settings['form_title'] . ' </div>
-
-                <div class="pb-4">
-
-                    <div method="post">
-
-                        <form id="message-form" class="contact-us-form">
-                            <div class="form-row">
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                    <div class="form-group">
-                                        <label> ' . $settings['form_name_label'] . ' </label>
-                                        <input id="name" type="text" name="name" class="form-control" placeholder="' . $settings['form_name_placeholder'] . '" />
+            <div class="col-12">
+                <div class="card contacts-form">
+                    <div class="card-body">
+        
+                        <div class="is-size-4 pb-4"> ' . $settings['form_title'] . ' </div>
+        
+                        <div class="pb-4">
+        
+                            <div method="post">
+        
+                                <form id="message-form" class="contact-us-form">
+                                    <div class="form-row">
+                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label> ' . $settings['form_name_label'] . ' </label>
+                                                <input id="name" type="text" name="name" class="form-control" placeholder="' . $settings['form_name_placeholder'] . '" />
+                                            </div>
+            
+                                            <div class="form-group">
+                                                <label> ' . $settings['form_email_label'] . '</label>
+                                                <input id="email" class="form-control" type="email" name="email" aria-describedby="emailHelp" placeholder="' . $settings['form_email_placeholder'] . '"/>                                        
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label> ' . $settings['form_message_label'] . ' </label>
+                                                <textarea id="message" class="form-control" name="message" placeholder="' . $settings['form_message_placeholder'] . '" ></textarea>
+                                            </div>
+                                        </div>
                                     </div>
-    
-                                    <div class="form-group">
-                                        <label> ' . $settings['form_email_label'] . '</label>
-                                        <input id="email" class="form-control" type="email" name="email" aria-describedby="emailHelp" placeholder="' . $settings['form_email_placeholder'] . '"/>                                        
+                                    <div class="form-row justify-content-end p-2">
+                                        <div class="px-4">
+                                            <button id="send-message" class="btn btn-primary message-form-btn-send-message form-control"> Send <span class="px-1"> ' .do_shortcode('[uptime_icon icon_name="Send"]').  '</span>
+                                            </button>
+                                            <div class="invalid-feedback">Error sending message. Try again.</div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                    <div class="form-group">
-                                        <label> ' . $settings['form_message_label'] . ' </label>
-                                        <textarea id="message" class="form-control" name="message" placeholder="' . $settings['form_message_placeholder'] . '" ></textarea>
-                                    </div>
-                                </div>
+                                    
+                                </form>
+        
                             </div>
-                            <div class="form-row justify-content-end p-2">
-                                <div class="px-4">
-                                    <button id="send-message" class="btn btn-primary message-form-btn-send-message form-control"> Send <span class="px-1"> ' .do_shortcode('[uptime_icon icon_name="Send"]').  '</span>
-                                    </button>
-                                    <div class="invalid-feedback">Error sending message. Try again.</div>
-                                </div>
-                            </div>
-                            
-                        </form>
-
+        
+                        </div>
+        
                     </div>
-
+                    
                 </div>
-
-            </div>
             </div>
         </div>        
 	         ';
