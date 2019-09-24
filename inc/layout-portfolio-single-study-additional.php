@@ -89,7 +89,3 @@
 		</div>
 	</div>
 </section>
-
-<?php 
-	// Standard Comments and Sharing
-	comments_template();
