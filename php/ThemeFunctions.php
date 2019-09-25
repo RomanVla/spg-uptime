@@ -28,9 +28,10 @@ if (!class_exists('ThemeFunctions')) {
         public function add_filters() {
 
             add_filter( 'widget_nav_menu_args', array( $this, 'change_widget_nav_menu_args' ) );
-            add_filter( 'tommusrhodus_add_footer_layouts', array( $this, 'added_custom_footer_layouts') );
-            add_filter( 'tommusrhodus_add_client_layouts', array( $this, 'added_custom_client_layouts') );
-            add_filter( 'tommusrhodus_add_portfolio_single_layouts', array( $this, 'added_custom_portfolio_single_layouts') );
+            add_filter( 'tommusrhodus_add_footer_layouts', array( $this, 'add_custom_footer_layouts') );
+            add_filter( 'tommusrhodus_add_client_layouts', array( $this, 'add_custom_client_layouts') );
+            add_filter( 'tommusrhodus_add_portfolio_single_layouts', array( $this, 'add_custom_portfolio_single_layouts') );
+            add_filter( 'tommusrhodus_add_portfolio_layouts', array( $this, 'add_custom_portfolio_layouts') );
 
         }
 
@@ -64,19 +65,24 @@ if (!class_exists('ThemeFunctions')) {
             return $nav_menu_args;
         }
 
-        public function added_custom_footer_layouts($options) {
+        public function add_custom_footer_layouts($options) {
             $options['spg'] = 'Default SPG';
             return $options;
         }
 
-        public function added_custom_client_layouts($options) {
+        public function add_custom_client_layouts($options) {
             $options['Medium Logos'] = 'medium';
             $options['Medium Logos, No Margin Bottom'] = 'medium-no-margin';
             return $options;
         }
 
-        public function added_custom_portfolio_single_layouts($options) {
+        public function add_custom_portfolio_single_layouts($options) {
             $options['study-additional'] = 'Study (additional)';
+            return $options;
+        }
+
+        public function  add_custom_portfolio_layouts($options) {
+            $options['spg'] = 'SPG (additional)';
             return $options;
         }
 
