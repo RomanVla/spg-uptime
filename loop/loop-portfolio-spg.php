@@ -5,7 +5,7 @@
 		
 		<div id="portfolio-<?php the_ID(); ?>" <?php post_class( 'col-sm-6 col-lg-4 mb-4' ); ?> data-isotope-item data-category="<?php echo esc_attr( TommusRhodus_Framework()->the_terms( $post->ID, 'portfolio_category', 'name', ' ' ) ); ?>">
 			<a href="<?php the_permalink(); ?>">
-                    <div class="rounded is-shadow-box d-flex align-items-end" style='min-height: 500px; background-repeat: no-repeat; background-size: contain; background-image: url("<?php echo get_the_post_thumbnail_url() ?>")'>
+                    <div class="rounded is-shadow-box d-flex align-items-end project-card" style= 'background-image: url("<?php echo get_the_post_thumbnail_url() ?>")'>
                         <div class="project-label">
 				            <div class="text-small text-muted px-4 project-label__term"><?php echo esc_attr( TommusRhodus_Framework()->the_terms( $post->ID, 'portfolio_category', 'name', ' ' ) ); ?></div>
                             <div class="px-2 text-light project-label__title">
