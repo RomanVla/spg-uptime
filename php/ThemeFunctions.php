@@ -35,6 +35,10 @@ if (!class_exists('ThemeFunctions')) {
 
         }
 
+        public function add_shortcodes() {
+            add_shortcode( 'spg_video_outline_button', array( $this, 'spg_video_outline_button_shortcode') );
+        }
+
         public function enqueue_theme_frontend() {
             $this->enqueue_theme_styles();
             $this->enqueue_theme_scripts();
@@ -56,6 +60,29 @@ if (!class_exists('ThemeFunctions')) {
             wp_enqueue_script('scripts-spg' );
             wp_localize_script( 'scripts-spg', 'wp_var',
                 array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+        }
+
+        public function spg_video_outline_button_shortcode($atts) {
+            $values = shortcode_atts(
+                array(
+                    'media_url' 	=> '',
+                    'button_style'	=> 'icon',
+                    'button_label'	=> 'Watch Video'
+                ),
+                $atts );
+
+            if( 'button' == $values['button_style'] ) {
+                $output = '
+                <a class="btn btn-md btn-outline-primary aos-init aos-animate" data-fancybox data-aos="fade-up" href="'. esc_url( $values['media_url'] ) .'">'. $values['button_label'] .'</a>';
+            } else {
+                $output = '
+				<a data-fancybox href="'. esc_url( $values['media_url'] ) .'" class="btn btn-xlg btn-primary btn-round mx-auto mb-4 aos-init aos-animate" data-aos="fade-up">
+		    		'. tommusrhodus_svg_icons_pluck( 'Play', 'icon' ) .'
+		    	</a>';
+            }
+
+            return $output;
+
         }
 
         public function change_widget_nav_menu_args($nav_menu_args, $nav_menu, $args, $instance) {

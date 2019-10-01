@@ -18,6 +18,7 @@ if (!class_exists('ThemeSpg')) {
 
             $theme_functions->add_actions();
             $theme_functions->add_filters();
+            $theme_functions->add_shortcodes();
 
             $this->add_opportuninty_upload_svg();
         }
