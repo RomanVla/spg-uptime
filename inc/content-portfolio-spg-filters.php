@@ -42,7 +42,7 @@ if( !$terms ){
 }
 ?>
 
-<div class="row justify-content-center mb-4">
+<div class="row justify-content-start mb-4">
     <div class="col col-md-auto dropdown project-card-filter">
         <div class="btn-group">
             <button class="btn btn-outline-primary project-card-filter__title"> Choose project area or technology </button>
