@@ -28,7 +28,7 @@ if (!class_exists('ThemeFunctions')) {
         public function add_filters() {
 
             add_filter( 'widget_nav_menu_args', array( $this, 'change_widget_nav_menu_args' ) );
-            add_filter( 'nav_menu_item_id', array( $this, 'set_nav_menu_item_id' ), 11, 4 );
+            add_filter( 'nav_menu_link_attributes', array( $this, 'add_nav_menu_link_attributes' ));
 
             add_filter( 'tommusrhodus_add_footer_layouts', array( $this, 'add_custom_footer_layouts') );
             add_filter( 'tommusrhodus_add_client_layouts', array( $this, 'add_custom_client_layouts') );
@@ -94,9 +94,10 @@ if (!class_exists('ThemeFunctions')) {
             return $nav_menu_args;
         }
 
-        public function set_nav_menu_item_id($id, $item, $args, $depth) {
+        public function add_nav_menu_link_attributes($atts) {
+            $atts['itemprop'] = 'url';
 
-            return $item->post_name;
+            return $atts;
         }
 
         public function add_custom_footer_layouts($options) {
