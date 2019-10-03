@@ -148,6 +148,18 @@ if (!class_exists('ThemeSpg')) {
             return $results;
         }
 
+        public function get_content_parts($content) {
+
+            $content_part_short = stristr ($content, '<cut/>', true);
+            if($content_part_short === false) {
+                $content_part_short = $content;
+            }
+
+            return array(
+                'short' => $content_part_short,
+                'full' => $content
+            );
+        }
     }
 
 }

@@ -1,3 +1,4 @@
+<?php global $theme_spg; ?>
 <?php get_template_part( 'inc/content-portfolio-spg', 'filters' ); ?>
 
 <div class="row" data-isotope-collection data-isotope-id="projects">	
@@ -15,7 +16,7 @@
                     </div>
                 <?php
                     if( has_excerpt() ){
-                    echo '<div class="text-small text-dark pt-2">'. get_the_excerpt() .'</div>';
+                    echo '<div class="text-small text-dark pt-2">'. $theme_spg->get_content_parts(get_the_excerpt())['short'] .'</div>';
                     }
                  ?>
 			</a>
