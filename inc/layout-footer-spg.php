@@ -35,7 +35,7 @@
         </div>
 
         <div class="row justify-content-center">
-            <div class="col col-md-auto text-center">
+            <div class="col-auto">
 
                 <?php get_template_part('inc/content', 'footer-social'); ?>
 
