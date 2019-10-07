@@ -30,6 +30,20 @@ class Widget_SPG_Contact_Us_Form_Block extends Widget_Base
         return ['uptime-elements'];
     }
 
+    /**
+     * Whether the reload preview is required or not.
+     *
+     * Used to determine whether the reload preview is required.
+     *
+     * @since 1.0.0
+     * @access public
+     *
+     * @return bool Whether the reload preview is required.
+     */
+    public function is_reload_preview_required() {
+        return true;
+    }
+
     protected function _register_controls()
     {
 

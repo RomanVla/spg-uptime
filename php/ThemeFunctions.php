@@ -34,7 +34,7 @@ if (!class_exists('ThemeFunctions')) {
             add_filter( 'tommusrhodus_add_client_layouts', array( $this, 'add_custom_client_layouts') );
             add_filter( 'tommusrhodus_add_portfolio_single_layouts', array( $this, 'add_custom_portfolio_single_layouts') );
             add_filter( 'tommusrhodus_add_portfolio_layouts', array( $this, 'add_custom_portfolio_layouts') );
-
+            add_filter( 'tommusrhodus_add_blog_layouts', array( $this, 'add_custom_blog_layouts') );
         }
 
         public function add_shortcodes() {
@@ -118,6 +118,11 @@ if (!class_exists('ThemeFunctions')) {
 
         public function  add_custom_portfolio_layouts($options) {
             $options['spg'] = 'SPG (additional)';
+            return $options;
+        }
+
+        public function add_custom_blog_layouts($options) {
+            $options['card-spg'] = 'Blog Cards (additional)';
             return $options;
         }
 
