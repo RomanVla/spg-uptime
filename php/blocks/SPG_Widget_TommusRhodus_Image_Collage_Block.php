@@ -16,7 +16,7 @@ class SPG_Widget_TommusRhodus_Image_Collage_Block extends Widget_TommusRhodus_Im
 
         $img_size = 'large';
         if (wp_is_mobile()) {
-            $img_size = 'medium';
+            $img_size = 'thumbnail';
         }
 
         echo '
