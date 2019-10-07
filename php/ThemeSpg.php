@@ -26,6 +26,7 @@ if (!class_exists('ThemeSpg')) {
         public function init_elementor_blocks() {
 
             require_once(__DIR__ . '/blocks/Widget_SPG_Contact_Us_Form_Block.php');
+            require_once(__DIR__ . '/blocks/SPG_Widget_TommusRhodus_Image_Collage_Block.php');
         }
 
         public function get_site_logo() {
