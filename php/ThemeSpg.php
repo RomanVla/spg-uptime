@@ -1,4 +1,9 @@
 <?php
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly.
+}
+
 require_once locate_template('/php/ThemeFunctions.php' );
 
 if (!class_exists('ThemeSpg')) {
@@ -8,6 +13,17 @@ if (!class_exists('ThemeSpg')) {
         public $domain = 'uptime';
 
         private $option_priority = 300;
+
+        private static $_instance = null;
+
+        public static function instance() {
+
+            if ( is_null( self::$_instance ) ) {
+                self::$_instance = new self();
+            }
+            return self::$_instance;
+
+        }
 
         function __construct(){
 
@@ -20,13 +36,22 @@ if (!class_exists('ThemeSpg')) {
             $theme_functions->add_filters();
             $theme_functions->add_shortcodes();
 
+            $this->init_widgets();
+
             $this->add_opportuninty_upload_svg();
+        }
+
+        public function init_widgets() {
+
+            require_once(__DIR__ . '/widgets/blog-call-to-action-widget.php');
+
         }
 
         public function init_elementor_blocks() {
 
             require_once(__DIR__ . '/blocks/Widget_SPG_Contact_Us_Form_Block.php');
             require_once(__DIR__ . '/blocks/SPG_Widget_TommusRhodus_Image_Collage_Block.php');
+
         }
 
         public function get_site_logo() {
