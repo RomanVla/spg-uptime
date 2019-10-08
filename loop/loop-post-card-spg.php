@@ -8,12 +8,7 @@
 		<div id="post-<?php the_ID(); ?>" <?php post_class( $first_post ? 'col-md-6 col-lg-8 d-flex' : 'col-md-6 col-lg-4 d-flex' ); ?> data-aos="fade-up" data-aos-delay="<?php echo esc_attr( $wp_query->current_post + 1 ); ?>00">
 
             <?php
-                if ($first_post) {
-                    get_template_part('loop/content', 'post-card-first-spg');
-                } else {
-                    get_template_part('loop/content', 'post-card-spg');
-                }
-
+                get_template_part('loop/content', $first_post ? 'post-card-first-spg' : 'post-card-spg');
                 $first_post = false;
             ?>
 
