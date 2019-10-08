@@ -65,14 +65,20 @@ if(!( class_exists('SPG_Blog_Call_To_Action') )){
 		function form($instance)
 		{
 
+            $defaults = array(
+                'title' 	=> '',
+                'bottom_text' 	=> '',
+            );
+            $instance = wp_parse_args((array) $instance, $defaults);
+
             ?>
 			<p>
-				<label for="<?php echo $this->get_field_id('title'); ?>">Title:</label>
-				<input class="widefat" style="width: 216px;" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo $instance['title']; ?>" />
+				<label for="<?= $this->get_field_id('title'); ?>">Title:</label>
+				<input class="widefat" style="width: 216px;" id="<?= $this->get_field_id('title'); ?>" name="<?= $this->get_field_name('title'); ?>" value="<?= $instance['title']; ?>" />
 			</p>
             <p>
-                <label for="<?php echo $this->get_field_id('bottom_text'); ?>">Bottom text:</label>
-                <textarea class="widefat" id="<?php echo $this->get_field_id( 'bottom_text' ); ?>" name="<?php echo $this->get_field_name( 'bottom_text' ); ?>" type="textarea" value="<?php echo esc_attr( $instance['bottom_text'] ); ?>"> <?php echo esc_attr( $instance['bottom_text'] ); ?> </textarea>
+                <label for="<?= $this->get_field_id('bottom_text'); ?>">Bottom text:</label>
+                <textarea class="widefat" id="<?= $this->get_field_id( 'bottom_text' ); ?>" name="<?= $this->get_field_name( 'bottom_text' ); ?>" type="textarea" value="<?= esc_attr( $instance['bottom_text'] ); ?>"> <?= esc_attr( $instance['bottom_text'] ); ?> </textarea>
             </p>
 		<?php
 		}
@@ -85,3 +91,4 @@ if(!( class_exists('SPG_Blog_Call_To_Action') )){
 
 }
 
+?>
