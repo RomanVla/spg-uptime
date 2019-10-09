@@ -41,6 +41,17 @@ if (!class_exists('ThemeFunctions')) {
 
             register_sidebar(
                 array(
+                    'id'            => 'blog_page_sidebar',
+                    'name'          => esc_html__( 'Blog Page Sidebar', 'uptime' ),
+                    'before_widget' => '<div id="%1$s" class="widget mb-4 %2$s">',
+                    'after_widget'  => '</div>',
+                    'before_title'  => '<h5>',
+                    'after_title'   => '</h5>'
+                )
+            );
+
+            register_sidebar(
+                array(
                     'id'            => 'mobile_blog_sidebar',
                     'name'          => esc_html__( 'Mobile Blog Sidebar', 'uptime' ),
                     'before_widget' => '<div id="%1$s" class="widget mb-4 %2$s">',
