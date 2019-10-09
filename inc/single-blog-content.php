@@ -13,50 +13,53 @@ $content_class = ( is_active_sidebar( 'blog_page_sidebar' ) ) ? 'col-sm-12 col-m
 <section class="p-0" data-reading-position>
     <div class="container">
 
-        <div class="<?php echo esc_attr( $content_class ); ?>">
+        <div class="row">
 
-            <?php if( 'video' == $format ) : ?>
+            <div class="<?php echo esc_attr( $content_class ); ?>">
 
-                <div class="row justify-content-center position-relative">
-                    <div class="col-lg-10 col-xl-8">
-                        <div class="rounded o-hidden">
-                            <div class="plyr" data-plyr-provider="<?php echo esc_attr( $video_provider ); ?>" data-plyr-embed-id="<?php echo esc_attr( $video_url ); ?>"></div>
+                <?php if( 'video' == $format ) : ?>
+
+                    <div class="row justify-content-center position-relative">
+                        <div class="col-lg-10 col-xl-8">
+                            <div class="rounded o-hidden">
+                                <div class="plyr" data-plyr-provider="<?php echo esc_attr( $video_provider ); ?>" data-plyr-embed-id="<?php echo esc_attr( $video_url ); ?>"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-            <?php elseif( has_post_thumbnail() && 'basic' == $hero_layout ) : ?>
+                <?php elseif( has_post_thumbnail() && 'basic' == $hero_layout ) : ?>
 
-                <div class="row justify-content-center position-relative post-thumbnail-wrapper">
+                    <div class="row justify-content-center position-relative post-thumbnail-wrapper">
+                        <div class="col-lg-10 col-xl-8">
+                            <?php the_post_thumbnail( 'large', array( 'class' => 'rounded' ) ); ?>
+                        </div>
+                    </div>
+
+                <?php endif; ?>
+
+                <div class="row justify-content-center">
                     <div class="col-lg-10 col-xl-8">
-                        <?php the_post_thumbnail( 'large', array( 'class' => 'rounded' ) ); ?>
+                        <article class="article">
+                            <?php
+                            the_content();
+                            wp_link_pages();
+                            the_tags( '', '', '' );
+                            ?>
+                        </article>
                     </div>
                 </div>
 
-            <?php endif; ?>
+            </div>
 
-            <div class="row justify-content-center">
-                <div class="col-lg-10 col-xl-8">
-                    <article class="article">
-                        <?php
-                        the_content();
-                        wp_link_pages();
-                        the_tags( '', '', '' );
-                        ?>
-                    </article>
+            <?php
+            if ( is_active_sidebar('blog_page_sidebar') ) { ?>
+                <div class="col-sm-12 col-md-4 col-lg-3">
+                    <?php dynamic_sidebar( 'blog_page_sidebar' ); ?>
                 </div>
-            </div>
-
+            <?php
+            }
+            ?>
         </div>
-
-        <?php
-        if ( is_active_sidebar('mobile_blog_sidebar') ) { ?>
-            <div class="col-sm-12 col-md-4 col-lg-3">
-                <?php dynamic_sidebar( 'mobile_blog_sidebar' ); ?>
-            </div>
-        <?php
-        }
-        ?>
     </div>
 </section>
 

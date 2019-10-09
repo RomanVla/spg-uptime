@@ -12,7 +12,7 @@
 	get_template_part( 'inc/single-blog-content' );
 	
 	// Standard Comments and Sharing
-	comments_template();
+	//comments_template();
 	
 	// Related Posts
 	get_template_part( 'inc/content-post', 'related' );
