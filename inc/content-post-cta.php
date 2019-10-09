@@ -11,13 +11,13 @@
     </section>
 
     <?php
-    if (is_active_sidebar('primary')) { ?>
+    if ( wp_is_mobile() && is_active_sidebar('mobile_blog_sidebar')) { ?>
         <section>
             <div class="container">
                 <div class="row justify-content-center text-center">
                     <div class="col-lg-10 col-xl-8">
 
-                        <?php dynamic_sidebar('primary'); ?>
+                        <?php dynamic_sidebar('mobile_blog_sidebar'); ?>
 
                     </div>
                 </div>

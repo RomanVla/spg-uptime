@@ -37,6 +37,21 @@ if (!class_exists('ThemeFunctions')) {
             add_filter( 'tommusrhodus_add_blog_layouts', array( $this, 'add_custom_blog_layouts') );
         }
 
+        public function register_sidebar() {
+
+            register_sidebar(
+                array(
+                    'id'            => 'mobile_blog_sidebar',
+                    'name'          => esc_html__( 'Mobile Blog Sidebar', 'uptime' ),
+                    'before_widget' => '<div id="%1$s" class="widget mb-4 %2$s">',
+                    'after_widget'  => '</div>',
+                    'before_title'  => '<h5>',
+                    'after_title'   => '</h5>'
+                )
+            );
+
+        }
+
         public function add_shortcodes() {
             add_shortcode( 'spg_video_outline_button', array( $this, 'spg_video_outline_button_shortcode') );
         }

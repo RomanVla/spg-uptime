@@ -36,6 +36,7 @@ if (!class_exists('ThemeSpg')) {
             $theme_functions->add_filters();
             $theme_functions->add_shortcodes();
 
+            add_action( 'widgets_init', array($theme_functions, 'register_sidebar') );
             $this->init_widgets();
 
             $this->add_opportuninty_upload_svg();
