@@ -11,8 +11,8 @@
     </section>
 
     <?php
-    if ( wp_is_mobile() && is_active_sidebar('mobile_blog_sidebar')) { ?>
-        <section>
+    if ( is_active_sidebar('mobile_blog_sidebar')) { ?>
+        <section class="d-block d-md-none">
             <div class="container">
                 <div class="row justify-content-center text-center">
                     <div class="col-lg-10 col-xl-8">
