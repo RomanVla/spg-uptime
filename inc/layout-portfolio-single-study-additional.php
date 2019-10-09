@@ -45,7 +45,7 @@
                             echo '</div>';
                         }
                         $terms = get_the_terms( $post->ID , 'portfolio_category');
-                        if ( count($terms) > 0 ) {
+                        if ( is_array($terms) && count($terms) > 0 ) {
                             echo '<div class="mb-3">';
                             echo '<h6 class="mb-1">Industry</h6>';
                             foreach($terms as $term){
