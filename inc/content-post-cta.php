@@ -11,18 +11,20 @@
     </section>
 
     <?php
-    if ( is_active_sidebar('mobile_blog_sidebar')) { ?>
-        <section class="d-block d-md-none">
-            <div class="container">
-                <div class="row justify-content-center text-center">
-                    <div class="col-lg-10 col-xl-8">
+endif; ?>
 
-                        <?php dynamic_sidebar('mobile_blog_sidebar'); ?>
+<?php if ( is_active_sidebar('mobile_blog_sidebar')) { ?>
+    <section class="d-block d-md-none">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-10 col-xl-8">
 
-                    </div>
+                    <?php dynamic_sidebar('mobile_blog_sidebar'); ?>
+
                 </div>
             </div>
-        </section>
-        <?php
-    }
-endif; ?>
+        </div>
+    </section>
+<?php
+}
+
