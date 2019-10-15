@@ -12,7 +12,12 @@
 			<a href="<?php the_permalink(); ?>" class="col-md-4">
 				<?php the_post_thumbnail( 'large', array( 'class' => 'card-img-top' ) ); ?>
 			</a>
-			
+        <?php else : ?>
+
+            <a href="<?php the_permalink(); ?>" class="col-md-4">
+                <div class="bg-primary-2" style="width: 100%; height: 100%"></div>
+            </a>
+
 		<?php endif; ?>
 		
 		<div class="<?php echo esc_attr( $class ); ?> card-body d-flex flex-column col-auto p-4">
