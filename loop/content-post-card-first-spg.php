@@ -70,7 +70,7 @@
 
         <div>
             <?php
-            the_title( '<h2>', '</h2>' );
+            the_title( '<a href="' . get_permalink() . '"><h2>', '</h2></a>' );
             echo '<span class="text-small opacity-70">'. esc_html( $author ) .'</span>';
             ?>
         </div>
