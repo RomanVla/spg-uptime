@@ -39,7 +39,7 @@
         <?php if( !wp_is_mobile() && has_post_thumbnail() ) : ?>
 
             <a href="<?php the_permalink(); ?>">
-                <?php the_post_thumbnail( 'large', array( 'class' => 'card-img-top' ) ); ?>
+                <?php the_post_thumbnail( 'tommusrhodus-card', array( 'class' => 'card-img-top' ) ); ?>
             </a>
 
         <?php endif; ?>
