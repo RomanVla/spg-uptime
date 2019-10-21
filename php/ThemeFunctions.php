@@ -91,13 +91,15 @@ if (!class_exists('ThemeFunctions')) {
             wp_register_script('scripts-spg',
                 get_stylesheet_directory_uri() . '/js/scripts-spg.js',
                 array(),
-                wp_get_theme()->get('Version')
+                wp_get_theme()->get('Version'),
+            true
             );
             wp_enqueue_script('scripts-spg',
                 array(),
                 get_stylesheet_directory_uri() . '/js/scripts-spg.js',
                 array(),
-                wp_get_theme()->get('Version')
+                wp_get_theme()->get('Version'),
+                true
             );
             wp_localize_script( 'scripts-spg', 'wp_var',
                 array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
