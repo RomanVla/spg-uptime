@@ -79,13 +79,26 @@ if (!class_exists('ThemeFunctions')) {
                 array('uptime-style'),
                 wp_get_theme()->get('Version')
             );
-            wp_enqueue_style('style-spg', get_stylesheet_directory_uri() . '/css/style-spg.css');
+            wp_enqueue_style('style-spg',
+                get_stylesheet_directory_uri() . '/css/style-spg.css',
+                array(),
+                wp_get_theme()->get('Version')
+            );
             wp_add_inline_style('uptime-child-style', $this->get_skin_inline_style());
         }
 
         public function enqueue_theme_scripts() {
-            wp_register_script('scripts-spg', get_stylesheet_directory_uri() . '/js/scripts.js');
-            wp_enqueue_script('scripts-spg' );
+            wp_register_script('scripts-spg',
+                get_stylesheet_directory_uri() . '/js/scripts-spg.js',
+                array(),
+                wp_get_theme()->get('Version')
+            );
+            wp_enqueue_script('scripts-spg',
+                array(),
+                get_stylesheet_directory_uri() . '/js/scripts-spg.js',
+                array(),
+                wp_get_theme()->get('Version')
+            );
             wp_localize_script( 'scripts-spg', 'wp_var',
                 array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
         }
