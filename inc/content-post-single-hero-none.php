@@ -1,7 +1,5 @@
 <section>
 	
-	<img src="<?php the_post_thumbnail_url( 'full' ); ?>" alt="Image" class="jarallax-img opacity-60">
-	
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-lg-10 col-xl-8">
