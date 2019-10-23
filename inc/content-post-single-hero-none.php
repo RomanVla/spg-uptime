@@ -1,4 +1,4 @@
-<section class="overlay" data-jarallax data-speed="0.5">
+<section>
 	
 	<img src="<?php the_post_thumbnail_url( 'full' ); ?>" alt="Image" class="jarallax-img opacity-60">
 	
