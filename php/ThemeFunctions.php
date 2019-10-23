@@ -31,6 +31,7 @@ if (!class_exists('ThemeFunctions')) {
             add_filter( 'nav_menu_link_attributes', array( $this, 'add_nav_menu_link_attributes' ));
 
             add_filter( 'theme_mod_header_layout', array( $this, 'theme_mod_header_layout'), 11, 1 );
+            add_filter( 'tommusrhodus_add_blog_single_layouts', array( $this, 'add_blog_single_layouts') );
             add_filter( 'tommusrhodus_add_footer_layouts', array( $this, 'add_custom_footer_layouts') );
             add_filter( 'tommusrhodus_add_client_layouts', array( $this, 'add_custom_client_layouts') );
             add_filter( 'tommusrhodus_add_portfolio_single_layouts', array( $this, 'add_custom_portfolio_single_layouts') );
@@ -150,6 +151,13 @@ if (!class_exists('ThemeFunctions')) {
 
             return $value;
 
+        }
+
+        public function add_blog_single_layouts($options) {
+
+            $options['none'] = 'None Hero';
+
+            return $options;
         }
 
         public function add_custom_footer_layouts($options) {
