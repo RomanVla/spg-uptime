@@ -29,8 +29,9 @@ if (!class_exists('ThemeFunctions')) {
 
             add_filter( 'widget_nav_menu_args', array( $this, 'change_widget_nav_menu_args' ) );
             add_filter( 'nav_menu_link_attributes', array( $this, 'add_nav_menu_link_attributes' ));
-
             add_filter( 'theme_mod_header_layout', array( $this, 'theme_mod_header_layout'), 11, 1 );
+            add_filter( 'widget_categories_args', array( $this, 'set_widget_categories_dropdown_args' ), 11, 2 );
+
             add_filter( 'tommusrhodus_add_blog_single_layouts', array( $this, 'add_blog_single_layouts') );
             add_filter( 'tommusrhodus_add_footer_layouts', array( $this, 'add_custom_footer_layouts') );
             add_filter( 'tommusrhodus_add_client_layouts', array( $this, 'add_custom_client_layouts') );
@@ -151,6 +152,13 @@ if (!class_exists('ThemeFunctions')) {
 
             return $value;
 
+        }
+
+        public function set_widget_categories_dropdown_args($cat_args, $instance) {
+
+            $cat_args['show_option_all'] = 'All';
+
+            return $cat_args;
         }
 
         public function add_blog_single_layouts($options) {
