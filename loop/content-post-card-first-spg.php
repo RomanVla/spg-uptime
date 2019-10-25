@@ -35,8 +35,11 @@
 
             </div>
 
-            <div class="position-absolute width-100 h-100 blackout" >
-            </div>
+            <?php
+                echo '<div class="position-absolute width-100 h-100 blackout" >
+                
+                </div>'
+            ?>
 
             <?php the_post_thumbnail('medium', array('class' => 'card-img-top width-100')); ?>
 
