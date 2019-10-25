@@ -1,10 +1,10 @@
 <?php
-$card_background = has_post_thumbnail() ? '' :  'bg-primary-2';
+$card_background = has_post_thumbnail() ? '' :  'bg-primary-2 text-light';
 ?>
 
     <div class="card o-hidden">
 
-        <div class="card-body d-flex flex-column <?php $card_background ?>">
+        <div class="card-body d-flex flex-column <?= $card_background ?>">
 
             <div class="d-flex justify-content-between mb-3">
                 <div class="text-small d-flex">
