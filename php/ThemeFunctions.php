@@ -275,6 +275,7 @@ if (!class_exists('ThemeFunctions')) {
         }
 
         public function get_skin_inline_style() {
+            $bg_primary = get_theme_mod('bg_dark', '#3755BE');
             $bg_dark = get_theme_mod('bg_dark', '#212529');
 
             $logo_height = str_replace('px', '', get_theme_mod('logo_height', '26px')) . 'px';
@@ -289,7 +290,11 @@ if (!class_exists('ThemeFunctions')) {
             a {
                 color: ' .$link_text. '
             }
-        
+
+            .blog a, .blog .widget a {
+                color: ' .$bg_primary. '
+            }
+
             .navbar-brand img {
 				max-height: ' . $logo_height . ';
 				width: ' . $logo_width . ';
