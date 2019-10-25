@@ -1,7 +1,7 @@
 <?php $link = get_post_meta( $post->ID, '_tommusrhodus_link_format_url', 1 ); ?>
 
 <div class="pr-lg-4">
-	<div class="card card-body justify-content-between bg-primary text-light">
+	<div class="card card-body justify-content-between bg-primary-2 text-light">
 		
 		<div class="d-flex justify-content-between mb-3">
 			<div class="text-small d-flex">

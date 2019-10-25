@@ -8,7 +8,6 @@
 
             <div class="position-absolute width-100 h-100 p-2 mb-3 text-light d-flex justify-content-between flex-column">
 
-
                 <div class="text-small d-flex">
 
                     <div class="mr-2">
@@ -36,6 +35,8 @@
 
             </div>
 
+            <div class="position-absolute width-100 h-100 blackout" >
+            </div>
 
             <?php the_post_thumbnail('medium', array('class' => 'card-img-top width-100')); ?>
 
