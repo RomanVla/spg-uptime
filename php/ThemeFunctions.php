@@ -291,7 +291,7 @@ if (!class_exists('ThemeFunctions')) {
                 color: ' .$link_text. '
             }
 
-            .blog a, .blog .widget a {
+            .blog a{
                 color: ' .$bg_primary. '
             }
 
