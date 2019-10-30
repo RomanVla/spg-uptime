@@ -8,6 +8,9 @@ if (!class_exists('ThemeFunctions')) {
     {
         private $theme;
 
+        private $domain = 'uptime';
+        private $metabox_prefix = 'spg-';
+
         function __construct(ThemeSpg $theme){
             $this->theme = $theme;
         }
@@ -22,6 +25,7 @@ if (!class_exists('ThemeFunctions')) {
             add_action( 'get_custom_logo', array( $this, 'get_navbar_brand_html' ) );
             add_action( 'customize_register', array( $this, 'add_theme_customize_option' ) );
             add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_theme_frontend'), 111 );
+            add_action( 'after_setup_theme', array( $this, 'after_setup_theme'), 111 );
 
         }
 
@@ -31,6 +35,9 @@ if (!class_exists('ThemeFunctions')) {
             add_filter( 'nav_menu_link_attributes', array( $this, 'add_nav_menu_link_attributes' ));
             add_filter( 'theme_mod_header_layout', array( $this, 'theme_mod_header_layout'), 11, 1 );
             add_filter( 'widget_categories_args', array( $this, 'set_widget_categories_dropdown_args' ), 11, 2 );
+
+            add_filter( 'cmb2_meta_boxes', array( $this, 'add_custom_metaboxes' ), 11 );
+            add_filter( 'wp_get_attachment_image_src', array( $this, 'get_custom_attachment_image_src' ), 11, 4 );
 
             add_filter( 'tommusrhodus_add_blog_single_layouts', array( $this, 'add_blog_single_layouts') );
             add_filter( 'tommusrhodus_add_footer_layouts', array( $this, 'add_custom_footer_layouts') );
@@ -45,7 +52,7 @@ if (!class_exists('ThemeFunctions')) {
             register_sidebar(
                 array(
                     'id'            => 'blog_page_sidebar',
-                    'name'          => esc_html__( 'Blog Page Sidebar', 'uptime' ),
+                    'name'          => esc_html__( 'Blog Page Sidebar', $this->domain ),
                     'before_widget' => '<div id="%1$s" class="widget mb-4 %2$s">',
                     'after_widget'  => '</div>',
                     'before_title'  => '<h5>',
@@ -56,7 +63,7 @@ if (!class_exists('ThemeFunctions')) {
             register_sidebar(
                 array(
                     'id'            => 'mobile_blog_sidebar',
-                    'name'          => esc_html__( 'Mobile Blog Sidebar', 'uptime' ),
+                    'name'          => esc_html__( 'Mobile Blog Sidebar', $this->domain ),
                     'before_widget' => '<div id="%1$s" class="widget mb-4 %2$s">',
                     'after_widget'  => '</div>',
                     'before_title'  => '<h5>',
@@ -106,6 +113,14 @@ if (!class_exists('ThemeFunctions')) {
             );
             wp_localize_script( 'scripts-spg', 'wp_var',
                 array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+        }
+
+        public function after_setup_theme() {
+
+            add_image_size( 'spg-blog-post-main', 597, 497, true );
+            add_image_size( 'spg-blog-post-card', 290, 186, true );
+            add_image_size( 'spg-blog-post-card-popular', 60, 61, true );
+
         }
 
         public function spg_video_outline_button_shortcode($atts) {
@@ -159,6 +174,56 @@ if (!class_exists('ThemeFunctions')) {
             $cat_args['show_option_all'] = 'All';
 
             return $cat_args;
+        }
+
+        public function add_custom_metaboxes($meta_boxes) {
+
+            $meta_boxes[] = array(
+                'id'           => 'post_thumbnails',
+                'title'        => esc_html__( 'Post Thumbnails', $this->domain ),
+                'object_types' => array( 'post' ), // post type
+                'context' => 'normal',
+                'priority' => 'high',
+                'show_names' => true, // Show field names on the left
+                'fields' => array(
+                    array(
+                        'name' => esc_html__( 'Main thumbnail', $this->domain ),
+                        'desc' => 'Enter main thumbnail',
+                        'id'   => $this->metabox_prefix . 'blog-post-main',
+                        'type' => 'file',
+                    ),
+                    array(
+                        'name' => esc_html__( 'Card thumbnail', $this->domain ),
+                        'desc' => 'Enter main thumbnail',
+                        'id'   => $this->metabox_prefix . 'blog-post-card',
+                        'type' => 'file',
+                    ),
+                    array(
+                        'name' => esc_html__( 'Popular thumbnail', $this->domain ),
+                        'desc' => 'Enter main thumbnail',
+                        'id'   => $this->metabox_prefix . 'blog-post-card-popular',
+                        'type' => 'file',
+                    ),
+
+                )
+            );
+
+            return $meta_boxes;
+
+        }
+
+        public function get_custom_attachment_image_src( $image, $attachment_id, $size, $icon ) {
+
+            if ( stripos($size, 'spg-blog-post-') !== false ) {
+
+                $post = get_post();
+
+                $spg_img_url = get_post_meta( $post->ID, $size, 1);
+                $image[0] = $spg_img_url;
+
+            }
+
+            return $image;
         }
 
         public function add_blog_single_layouts($options) {
@@ -316,3 +381,19 @@ if (!class_exists('ThemeFunctions')) {
 
 }
 
+if (!function_exists('spg_has_post_thumbnail')) {
+
+    function spg_has_post_thumbnail( $post = null )
+    {
+
+        if ( is_string($post) == 1 ) {
+            $current_post = get_post();
+            $url = get_post_meta($current_post->ID, $post, true);
+
+            return ( !isset($url) || $url !== '' );
+        }
+
+        return has_post_thumbnail( get_post( $post ) );
+    }
+
+}

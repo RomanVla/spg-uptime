@@ -1,12 +1,12 @@
 <?php
-$card_background = has_post_thumbnail() ? '' :  'bg-primary-2 text-light';
+$card_background = spg_has_post_thumbnail('spg-blog-post-card') ? '' :  'bg-primary-2 text-light';
 ?>
 
     <div class="card o-hidden">
 
-        <div class="card-body d-flex flex-column <?= $card_background ?>">
+        <div class="card-body d-flex flex-column pb-0">
 
-            <div class="d-flex justify-content-between mb-3">
+            <div class="d-flex justify-content-between mb-2">
                 <div class="text-small d-flex">
 
                     <div class="mr-2">
@@ -27,23 +27,37 @@ $card_background = has_post_thumbnail() ? '' :  'bg-primary-2 text-light';
             </div>
 
             <?php
-            the_title( '<a href="'. get_permalink() .'"><h4 class="card-title mb-3">', '</h4></a>' );
+            the_title( '<a class="mb-2" href="'. get_permalink() .'"><h4>', '</h4></a>' );
 
-            if( has_excerpt() ){
-                echo '<p class="flex-grow-1">'. get_the_excerpt() .'</p>';
-            } else {
-                echo '<div class="flex-grow-1"></div>';
-            }
             ?>
 
         </div>
 
-        <?php if( !wp_is_mobile() && has_post_thumbnail() ) : ?>
+        <div class="card-img position-relative">
 
-            <a href="<?php the_permalink(); ?>">
-                <?php the_post_thumbnail( 'tommusrhodus-card', array( 'class' => 'card-img-top' ) ); ?>
-            </a>
+            <?php if( !wp_is_mobile() && spg_has_post_thumbnail('spg-blog-post-card') ) : ?>
 
-        <?php endif; ?>
+                <a class="position-absolute thumbnail-hover" href="<?php the_permalink(); ?>">
+                    <?php the_post_thumbnail( 'spg-blog-post-card', array( 'class' => 'card-img-top' ) ); ?>
+                </a>
+
+            <?php else : ?>
+
+                <div class="position-absolute thumbnail-hover bg-primary-2">
+                </div>
+
+            <?php ?>
+
+            <?php endif; ?>
+
+            <?php
+            if( has_excerpt() ){
+                echo '<p class="flex-grow-1 position-absolute card-body-hover mb-0">'. get_the_excerpt() .'</p>';
+            } else {
+                echo '<div class="flex-grow-1 position-absolute card-body-hover p-0"></div>';
+            }
+            ?>
+
+        </div>
 
     </div>

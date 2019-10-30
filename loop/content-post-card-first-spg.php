@@ -2,7 +2,7 @@
     $author = get_post_meta($post->ID, '_tommusrhodus_quote_format_author', 1);
 ?>
 
-<?php if ( !wp_is_mobile() && has_post_thumbnail() ) : ?>
+<?php if ( !wp_is_mobile() && spg_has_post_thumbnail('spg-blog-post-main') ) : ?>
 
     <div class="position-relative width-100">
 
@@ -39,7 +39,7 @@
 
             <?php echo '<a href="' . get_permalink()  . '" class="position-absolute width-100 h-100 blackout" ></a>' ?>
 
-            <?php the_post_thumbnail('medium', array('class' => 'card-img-top width-100')); ?>
+            <?php the_post_thumbnail('spg-blog-post-main', array('class' => 'card-img-top width-100', 'post-id' => $post->ID)); ?>
 
         </div>
 
