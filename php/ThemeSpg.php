@@ -44,6 +44,7 @@ if (!class_exists('ThemeSpg')) {
 
         public function init_widgets() {
 
+            require_once(__DIR__ . '/widgets/SPG_Widget_TommusRhodus_Popular_Widget.php');
             require_once(__DIR__ . '/widgets/blog-call-to-action-widget.php');
             require_once(__DIR__ . '/widgets/Widget_SPG_Category.php');
 

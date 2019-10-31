@@ -119,7 +119,7 @@ if (!class_exists('ThemeFunctions')) {
 
             add_image_size( 'spg-blog-post-main', 597, 497, true );
             add_image_size( 'spg-blog-post-card', 290, 186, true );
-            add_image_size( 'spg-blog-post-card-popular', 60, 61, true );
+            add_image_size( 'spg-blog-post-card-popular', 81, 60, true );
 
         }
 
