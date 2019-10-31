@@ -2,7 +2,7 @@
 $card_background = spg_has_post_thumbnail('spg-blog-post-card') ? '' :  'bg-primary-2 text-light';
 ?>
 
-    <div class="card o-hidden">
+    <div class="card o-hidden d-block">
 
         <div class="card-body d-flex flex-column pb-0">
 
@@ -39,7 +39,7 @@ $card_background = spg_has_post_thumbnail('spg-blog-post-card') ? '' :  'bg-prim
             $card_thumbnail_css = 'card-thumbnail__img';
             if( has_excerpt() ){
                 $card_thumbnail_css = 'card-thumbnail__img__50';
-                echo '<p class="flex-grow-1 position-absolute card-thumbnail__text mb-0">'. get_the_excerpt() .'</p>';
+                echo '<p class="flex-grow-1 card-thumbnail__text mb-0 pb-0">'. get_the_excerpt() .'</p>';
             }
             ?>
 
