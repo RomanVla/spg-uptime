@@ -10,7 +10,7 @@
 
             <?php echo '<a href="' . get_permalink()  . '" class="position-absolute width-100 h-100 blackout" ></a>' ?>
 
-            <div class="position-absolute width-100 h-100 p-2 mb-3 text-light d-flex justify-content-between flex-column">
+            <div class="first-card position-absolute width-100 h-100 mb-3 text-light d-flex justify-content-between flex-column">
 
                 <div class="text-small d-flex">
 
@@ -32,7 +32,7 @@
 
                 <div>
                     <?php
-                    the_title('<a href="' . get_permalink() . '"><h2>', '</h2></a>');
+                    the_title('<a href="' . get_permalink() . '"><h2 class="m-0">', '</h2></a>');
                     echo '<span class="text-small opacity-70">' . esc_html($author) . '</span>';
                     ?>
                 </div>
