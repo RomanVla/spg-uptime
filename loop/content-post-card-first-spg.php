@@ -8,6 +8,8 @@
 
         <div class="card card-body justify-content-between o-hidden p-0">
 
+            <?php echo '<a href="' . get_permalink()  . '" class="position-absolute width-100 h-100 blackout" ></a>' ?>
+
             <div class="position-absolute width-100 h-100 p-2 mb-3 text-light d-flex justify-content-between flex-column">
 
                 <div class="text-small d-flex">
@@ -36,8 +38,6 @@
                 </div>
 
             </div>
-
-            <?php echo '<a href="' . get_permalink()  . '" class="position-absolute width-100 h-100 blackout" ></a>' ?>
 
             <?php the_post_thumbnail('spg-blog-post-main', array('class' => 'card-img-top width-100', 'post-id' => $post->ID)); ?>
 
