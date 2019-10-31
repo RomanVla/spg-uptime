@@ -33,17 +33,17 @@ $card_background = spg_has_post_thumbnail('spg-blog-post-card') ? '' :  'bg-prim
 
         </div>
 
-        <div class="card-img position-relative">
+        <div class="card-thumbnail position-relative">
 
             <?php if( !wp_is_mobile() && spg_has_post_thumbnail('spg-blog-post-card') ) : ?>
 
-                <a class="position-absolute thumbnail-hover" href="<?php the_permalink(); ?>">
+                <a class="position-absolute card-thumbnail-img" href="<?php the_permalink(); ?>">
                     <?php the_post_thumbnail( 'spg-blog-post-card', array( 'class' => 'card-img-top' ) ); ?>
                 </a>
 
             <?php else : ?>
 
-                <div class="position-absolute thumbnail-hover bg-primary-2">
+                <div class="position-absolute card-thumbnail-img bg-primary-2">
                 </div>
 
             <?php ?>
@@ -52,9 +52,9 @@ $card_background = spg_has_post_thumbnail('spg-blog-post-card') ? '' :  'bg-prim
 
             <?php
             if( has_excerpt() ){
-                echo '<p class="flex-grow-1 position-absolute card-body-hover mb-0">'. get_the_excerpt() .'</p>';
+                echo '<p class="flex-grow-1 position-absolute card-thumbnail-text mb-0">'. get_the_excerpt() .'</p>';
             } else {
-                echo '<div class="flex-grow-1 position-absolute card-body-hover p-0"></div>';
+                echo '<div class="flex-grow-1 position-absolute card-thumbnail-text p-0"></div>';
             }
             ?>
 
