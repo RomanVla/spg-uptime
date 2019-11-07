@@ -31,7 +31,7 @@ if (!class_exists('ThemeFunctions')) {
 
         public function add_filters() {
 
-            add_filter( 'widget_nav_menu_args', array( $this, 'change_widget_nav_menu_args' ) );
+            add_filter( 'widget_nav_menu_args', array( $this, 'change_widget_nav_menu_args' ), 11, 4 );
             add_filter( 'nav_menu_link_attributes', array( $this, 'add_nav_menu_link_attributes' ));
             add_filter( 'theme_mod_header_layout', array( $this, 'theme_mod_header_layout'), 11, 1 );
             add_filter( 'widget_categories_args', array( $this, 'set_widget_categories_dropdown_args' ), 11, 2 );
