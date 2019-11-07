@@ -214,7 +214,7 @@ if (!class_exists('ThemeFunctions')) {
 
         public function get_custom_attachment_image_src( $image, $attachment_id, $size, $icon ) {
 
-            if ( stripos($size, 'spg-blog-post-') !== false ) {
+            if ( (is_string($size)) && ( stripos($size, 'spg-blog-post-') !== false ) ) {
 
                 $post = get_post();
 
