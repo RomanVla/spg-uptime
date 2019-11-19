@@ -48,7 +48,7 @@
 
 <?php else : ?>
 
-    <div class="position-relative width-100 mb-3">
+    <div class="position-relative width-100 mb-3" style="min-height: 339px;">
 
         <div class="card card-body justify-content-between bg-primary text-light o-hidden position-absolute width-100 h-100">
 
