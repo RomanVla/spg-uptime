@@ -106,7 +106,6 @@ if (!class_exists('ThemeFunctions')) {
             true
             );
             wp_enqueue_script('scripts-spg',
-                array(),
                 get_stylesheet_directory_uri() . '/js/scripts-spg.js',
                 array(),
                 wp_get_theme()->get('Version'),
