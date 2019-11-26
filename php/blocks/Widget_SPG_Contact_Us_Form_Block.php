@@ -54,6 +54,14 @@ class Widget_SPG_Contact_Us_Form_Block extends Widget_Base
         );
 
         $this->add_control(
+            'form_background', [
+                'label' => __('Form background', 'tr-framework'),
+                'type' => Controls_Manager::COLOR,
+                'default' => ''
+            ]
+        );
+
+        $this->add_control(
             'form_title', [
                 'label' => __('Form Title', 'tr-framework'),
                 'type' => Controls_Manager::TEXT,
@@ -86,6 +94,23 @@ class Widget_SPG_Contact_Us_Form_Block extends Widget_Base
                 'type' => Controls_Manager::TEXT,
                 'default' => 'e.g. Miles Bennett Dyson',
                 'label_block' => true
+            ]
+        );
+
+        $this->add_control(
+            'form_button_title', [
+                'label' => __('Form button Title', 'tr-framework'),
+                'type' => Controls_Manager::TEXT,
+                'default' => 'Send',
+                'label_block' => true
+            ]
+        );
+
+        $this->add_control(
+            'form_button_background_color', [
+                'label' => __('Form button background color', 'tr-framework'),
+                'type' => Controls_Manager::COLOR,
+                'default' => ''
             ]
         );
 
@@ -148,6 +173,32 @@ class Widget_SPG_Contact_Us_Form_Block extends Widget_Base
 
         $this->end_controls_section();
 
+        $this->start_controls_section(
+            'section_form_header_footer', [
+                'label' => esc_html__('Contact form header, footer', 'tr-framework'),
+            ]
+        );
+
+        $this->add_control(
+            'form_header', [
+                'label' => __('Form header', 'tr-framework'),
+                'type' => Controls_Manager::WYSIWYG,
+                'default' => '',
+                'label_block' => true
+            ]
+        );
+
+        $this->add_control(
+            'form_footer', [
+                'label' => __('Form footer', 'tr-framework'),
+                'type' => Controls_Manager::WYSIWYG,
+                'default' => '',
+                'label_block' => true
+            ]
+        );
+
+        $this->end_controls_section();
+
     }
 
     protected function render()
@@ -160,13 +211,42 @@ class Widget_SPG_Contact_Us_Form_Block extends Widget_Base
             echo '<div data-aos="fade-up" data-aos-delay="NaN">';
         }
 
-        echo '
+        $form_header = '';
+        if ( $settings['form_header'] ) {
+            $form_header = '         
+                <div class="row">
+                    <div class="col-12">
+                        ' . $settings['form_header'] . '
+                    </div>
+                </div>
+            ';
+        }
+
+        $form_footer = '';
+        if ( $settings['form_footer'] ) {
+            $form_footer = '
+                <div class="row">
+                    <div class="col-12">
+                        ' . $settings['form_footer'] . '
+                    </div>
+                </div>            
+            ';
+        }
+
+        $form_title = '';
+        if ($settings['form_title']) {
+            $form_title = '
+                <div class="is-size-4 pb-4"> ' . $settings['form_title'] . ' </div>
+            ';
+        }
+
+        echo $form_header . '         
         <div class="row">
             <div class="col-12">
-                <div class="card contacts-form">
+                <div class="card contacts-form" style="background-color: ' . $settings['form_background'] . '">
                     <div class="card-body">
         
-                        <div class="is-size-4 pb-4"> ' . $settings['form_title'] . ' </div>        
+                        ' . $form_title . '        
         
                             <div method="post">
         
@@ -192,7 +272,7 @@ class Widget_SPG_Contact_Us_Form_Block extends Widget_Base
                                     </div>
                                     <div class="form-row justify-content-start p-2">
                                         <div>
-                                            <button id="send-message" class="btn btn-primary message-form-btn-send-message form-control"> Send <span class="px-1"> ' .do_shortcode('[uptime_icon icon_name="Send"]').  '</span>
+                                            <button id="send-message" class="btn btn-primary message-form-btn-send-message form-control" style="border-color: ' .$settings['form_button_background_color']. ';background-color: ' .$settings['form_button_background_color']. ' "> ' . $settings['form_button_title'] . ' <span class="px-1"> ' .do_shortcode('[uptime_icon icon_name="Send"]').  '</span>
                                             </button>
                                             <div class="invalid-feedback">Error sending message. Try again.</div>
                                         </div>
@@ -207,7 +287,8 @@ class Widget_SPG_Contact_Us_Form_Block extends Widget_Base
                     </div>
                 </div>
             </div>
-	         ';
+	         '
+         . $form_footer;
 
         if (!$user_selected_animation) {
             echo '</div>';
