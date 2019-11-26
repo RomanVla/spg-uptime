@@ -25,7 +25,7 @@ if (!class_exists('ThemeFunctions')) {
             add_action( 'get_custom_logo', array( $this, 'get_navbar_brand_html' ) );
             add_action( 'customize_register', array( $this, 'add_theme_customize_option' ) );
             add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_theme_frontend'), 111 );
-            add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_theme_frontend'), 111);
+            //add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_theme_frontend'), 111);
             add_action( 'after_setup_theme', array( $this, 'after_setup_theme'), 111 );
 
         }
