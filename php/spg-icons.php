@@ -64,13 +64,12 @@ function uptime_child_add_svg_icons($icons) {
 ',
         'spg_vue' => '<svg class="icon" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <defs>
-        <style>.cls-1{fill:#000000;}.cls-2{fill:#000000;}.cls-3{fill:#000000;}.cls-4{fill:#FFF !important;}</style>
+        <style>.cls-1{fill:#000000;}.cls-2{fill:#000000;}</style>
     </defs>
     <title>icon</title>
-    <polygon class="cls-1" opacity="0.3" points="0.78 3.89 2.49 18.87 12 24 12 0 0.78 3.89"/>
-    <polygon class="cls-2" points="12 0 12 24 21.51 18.87 23.22 3.89 12 0"/>
-    <polygon class="cls-3" opacity="0.3" points="9.86 12.04 14.2 12.04 12.07 7.35 9.86 12.04"/>
-    <path class="cls-4" opacity="1" d="M12,2.61,8.25,10.66,5.07,17.47H7.33L9,14.06H15l1.6,3.41h2.31ZM9.79,12,12,7.35,14.14,12Z"/>
+    <polygon class="cls-1" points="24 1.73 19.16 1.73 12 14.09 12 14.06 4.84 1.7 0 1.7 12 22.27 12 22.3 24 1.73"/>
+    <polygon class="cls-2" opacity="0.5"
+             points="19.16 1.73 14.79 1.73 12 6.33 12 6.31 9.21 1.7 4.84 1.7 12 14.06 12 14.09 19.16 1.73"/>
 </svg>
 ',
         'spg_react' => '<svg class="icon" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
