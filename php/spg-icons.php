@@ -72,7 +72,7 @@ function uptime_child_add_svg_icons($icons) {
              points="19.16 1.73 14.79 1.73 12 6.33 12 6.31 9.21 1.7 4.84 1.7 12 14.06 12 14.09 19.16 1.73"/>
 </svg>
 ',
-        'spg_react' => '<svg class="icon icon-stroke" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        'spg_react' => '<svg class="icon" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <defs>
         <style>
             .spg-react-cls-1{fill:#000000;}.spg-react-cls-2,.spg-react-cls-4{fill:none;stroke-miterlimit:10;stroke-width:2px;}.spg-react-cls-2{stroke:#000000;}.spg-react-cls-3{fill:#000000;}.spg-react-cls-4{stroke:#000000;}
