@@ -57,7 +57,7 @@ function uptime_child_add_svg_icons($icons) {
     </defs>
     <title>icon</title>
     <polygon class="cls-1" opacity="0.3" points="0.78 3.89 2.49 18.87 12 24 12 0 0.78 3.89"/>
-    <polygon class="cls-2"  points="12 0 12 24 21.51 18.87 23.22 3.89 12 0"/>
+    <polygon class="cls-2" opacity="0.7" points="12 0 12 24 21.51 18.87 23.22 3.89 12 0"/>
     <polygon class="cls-3" opacity="0.3" points="9.86 12.04 14.2 12.04 12.07 7.35 9.86 12.04"/>
     <path class="cls-4" d="M12,2.61,8.25,10.66,5.07,17.47H7.33L9,14.06H15l1.6,3.41h2.31ZM9.79,12,12,7.35,14.14,12Z"/>
 </svg>
