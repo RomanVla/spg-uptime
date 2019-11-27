@@ -81,7 +81,7 @@ function uptime_child_add_svg_icons($icons) {
     <title>icon</title>
     <circle class="spg-react-cls-1" cx="8.46" cy="16.93" r="1.63"/>
     <path class="spg-react-cls-2" d="M8.46,16.93C4.93,13.48,4.76,1.7,12.08,1.7,16.23,1.7,17.4,6.06,17.4,8"/>
-    <circle class="spg-react-cls-4" opacity="0.3" cx="10.51" cy="9.42" r="1.63"/>
+    <circle class="spg-react-cls-3" opacity="0.3" cx="10.51" cy="9.42" r="1.63"/>
     <path class="spg-react-cls-4" opacity="0.3" d="M10.51,9.42c4.69-1.54,15.21,3.77,11.83,10.25-1.92,3.68-6.33,2.7-8,1.81"/>
     <circle class="spg-react-cls-1" cx="16.57" cy="14.63" r="1.63"/>
     <path class="spg-react-cls-2" d="M16.57,14.63c-1,4.83-10.85,11.3-14.78,5.13-2.23-3.5.82-6.83,2.44-7.86"/>
