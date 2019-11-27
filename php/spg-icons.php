@@ -87,6 +87,24 @@ function uptime_child_add_svg_icons($icons) {
     <path class="spg-react-cls-2" fill-opacity="0" d="M16.57,14.63c-1,4.83-10.85,11.3-14.78,5.13-2.23-3.5.82-6.83,2.44-7.86"/>
 </svg>
 ',
+        'spg_docker' => '<svg class="icon" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <style>.cls-1{fill:#000000;}</style>
+    </defs>
+    <title>icon 2</title>
+    <path class="cls-1"
+          d="M0,11.79H16.15a5.62,5.62,0,0,0,3.11-.8c-.65-.91-1-3,0-4.09a3.74,3.74,0,0,1,1.63,2.8A3.7,3.7,0,0,1,24,9.89c-.57,1.18-1.35,1.83-3.68,1.75-.45,1.18-3,8-12.06,8S0,11.79,0,11.79Z"/>
+    <rect class="cls-1" x="2.43" y="9.31" width="2.16" height="2.16"/>
+    <rect class="cls-1" x="4.95" y="9.31" width="2.16" height="2.16"/>
+    <rect class="cls-1" x="7.47" y="9.31" width="2.16" height="2.16"/>
+    <rect class="cls-1" x="9.99" y="9.31" width="2.16" height="2.16"/>
+    <rect class="cls-1" x="12.52" y="9.31" width="2.16" height="2.16"/>
+    <rect class="cls-1" x="4.95" y="6.83" width="2.16" height="2.16"/>
+    <rect class="cls-1" x="7.47" y="6.83" width="2.16" height="2.16"/>
+    <rect class="cls-1" x="9.99" y="6.83" width="2.16" height="2.16"/>
+    <rect class="cls-1" x="9.99" y="4.36" width="2.16" height="2.16"/>
+</svg>
+',
 
             //<!-- endinject -->
     ));
