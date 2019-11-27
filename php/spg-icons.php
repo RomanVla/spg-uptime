@@ -53,7 +53,7 @@ function uptime_child_add_svg_icons($icons) {
 ',
         'spg_angular' => '<svg class="icon" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <defs>
-        <style>.cls-1{fill:#000000;}.cls-2{fill:#000000;}.cls-3{fill:white;}.cls-4{fill:#fff;}</style>
+        <style>.cls-1{fill:#000000;}.cls-2{fill:#000000;}.cls-3{fill:#000000;}.cls-4{fill:white;}</style>
     </defs>
     <title>icon</title>
     <polygon class="cls-1" opacity="0.3" points="0.78 3.89 2.49 18.87 12 24 12 0 0.78 3.89"/>
