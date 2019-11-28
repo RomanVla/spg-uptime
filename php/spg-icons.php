@@ -108,20 +108,21 @@ function uptime_child_add_svg_icons($icons) {
         'spg_react_native' => '<svg class="icon" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <defs>
         <style type="text/css">
-            .st0{fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:10;}
-            .st1{fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:9.9999;}
+            .st0{fill:#000000;stroke:#000000;stroke-width:1.5;stroke-miterlimit:10;}
+            .st1{fill:#000000;stroke:#000000;stroke-width:1.5;stroke-miterlimit:9.9999;}
             .st2{fill:#000000;}
         </style>
     </defs>
     <g>
-        <ellipse class="st0" cx="12" cy="12" rx="11.2" ry="4.3"/>
-        <ellipse transform="matrix(0.8573 -0.5148 0.5148 0.8573 -4.47 7.8769)" class="st1" cx="12" cy="12" rx="4.3"
+        <ellipse class="st0" fill-opacity="0" cx="12" cy="12" rx="11.2" ry="4.3"/>
+        <ellipse fill-opacity="0" transform="matrix(0.8573 -0.5148 0.5148 0.8573 -4.47 7.8769)" class="st1" cx="12" cy="12" rx="4.3"
                  ry="11.2"/>
-        <ellipse transform="matrix(0.5148 -0.8573 0.8573 0.5148 -4.4909 16.0609)" class="st1" cx="11.9" cy="12"
+        <ellipse fill-opacity="0" transform="matrix(0.5148 -0.8573 0.8573 0.5148 -4.4909 16.0609)" class="st1" cx="11.9" cy="12"
                  rx="11.2" ry="4.3"/>
         <circle class="st2" cx="12" cy="12" r="1.9"/>
     </g>
 </svg>
+
 
 ',
 
